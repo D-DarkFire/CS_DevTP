@@ -29,7 +29,7 @@ def nombre_mois (mois, an) : # Fonction qui donne le nombre de jour d'un mois en
     
 
 def date_valide (jour, mois, année) : # Fonction qui vérifie le nombre 
-    assert isinstance(jour,int) and 1 <= mois <= 31 , 'Saisie invalide'
+    assert isinstance(jour,int) and 1 <= jour <= 31 , 'Saisie invalide'
     if jour <= nombre_mois(mois,année):
         return 'Date valide'
     return 'Date non valide'
