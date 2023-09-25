@@ -1,6 +1,6 @@
 #Header 
 '''
-Fichier contenant le programme principale du TP1 
+Fichier contenant le programme principale du TP1 exo 2 
 Réalisé par Ballandras Quentin le 25/09/23
 '''
 
@@ -11,7 +11,5 @@ date=input("Entrez une date en séparant par des '/' et en écrivant l'année en
 date=date.split('/')
 print(date)
 print(date_valide(int(date[0]),int(date[1]),int(date[2])))
-
-
 
 

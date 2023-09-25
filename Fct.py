@@ -3,7 +3,7 @@
 Fichier contenant les fonctions du TP1 
 Réalisé par Ballandras Quentin le 25/09/23
 '''
-
+from math import floor
 
 def bissextille (année : int)-> bool : # Fonction qui renvoie 'True' si une 'année' est bissextile et 'False' sinon
     assert isinstance(année,int), 'Saisie invalide'
@@ -33,5 +33,18 @@ def date_valide (jour, mois, année) : # Fonction qui vérifie le nombre
     if jour <= nombre_mois(mois,année):
         return 'Date valide'
     return 'Date non valide'
-        
+
+
+def mesImpots (revenu): 
+    assert isinstance(revenu,int), 'Saisie invalide'
+    if revenu <= 10225 :
+        return 0
+    if revenu <= 26070 : 
+        return floor((revenu - 10225)*0.11)
+    if revenu <= 745545 : 
+        return floor(((revenu - 26070)*0.30 + 1743.1))
+    if revenu <= 160336 : 
+        return floor(((revenu - 74546)*0.41 + 16285.3))
+    else : 
+        return floor(((revenu - 160336)*0.45 + 51459.2))
 
