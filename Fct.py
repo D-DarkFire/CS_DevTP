@@ -5,7 +5,8 @@ Réalisé par Ballandras Quentin le 25/09/23
 '''
 from math import floor
 
-def bissextille (année : int)-> bool : # Fonction qui renvoie 'True' si une 'année' est bissextile et 'False' sinon
+def bissextille (année : int)-> bool : 
+    # Fonction qui renvoie 'True' si une 'année' est bissextile et 'False' sinon
     assert isinstance(année,int), 'Saisie invalide'
     if année % 400 == 0 : # On vérifie si l'année est un multiple de 400
         return True
@@ -28,14 +29,14 @@ def nombre_mois (mois, an) : # Fonction qui donne le nombre de jour d'un mois en
     return 31
     
 
-def date_valide (jour, mois, année) : # Fonction qui vérifie le nombre 
+def date_valide (jour, mois, année) : # Fonction qui vérifie la validité d'une date 
     assert isinstance(jour,int) and 1 <= jour <= 31 , 'Saisie invalide'
     if jour <= nombre_mois(mois,année):
         return 'Date valide'
     return 'Date non valide'
 
 
-def mesImpots (revenu): 
+def mesImpots (revenu): # Fonction qui calcule les impots à partir du revenu 
     assert isinstance(revenu,int), 'Saisie invalide'
     if revenu <= 10225 :
         return 0
@@ -47,4 +48,20 @@ def mesImpots (revenu):
         return floor(((revenu - 74546)*0.41 + 16285.3))
     else : 
         return floor(((revenu - 160336)*0.45 + 51459.2))
+
+A = [[2 for j in range(3)] for i in range(4)]
+B = [[2 for j in range(4)] for i in range(3)]
+
+def multiplication(A,B) : # Fonction qui multiplie deux matrices A et B telle que C = A x B 
+    assert len(A[0]) == len(B) , "Matrice de taille incorrecte"
+    C = [[0 for j in range(len(A))] for i in range(len(B[0]))]
+    for i in range(len(A)):
+        for j in range(len(B[0])):
+            somme = 0
+            for k in range(len(A[0])) :
+                somme += A[i][k]*B[k][j]
+            C[i][j] = somme
+    print(C)
+
+multiplication(A,B)
 
